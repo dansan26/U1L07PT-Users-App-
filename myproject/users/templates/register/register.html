@@ -5,3 +5,12 @@
 <img class="masthead-avatar mb-5" src="{% static 'assets/blog/register.png' %}" alt="..." />
 {% endblock header_image %}
 {% block header_title %}Register a New User{% endblock header_title %}
+
+{% block content %}
+    <h1>Register a New User</h1>
+    <form action="/users/register" method="POST">
+        {%csrf_token%} {# Cross-site Request Forgery Security Token #}
+        {{form}}
+        <button>Submit</button>
+    </form>
+{% endblock content %}
